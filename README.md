@@ -1,8 +1,6 @@
 # Timecop::JeanClaudeVanDo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/timecop/jean_claude_van_do`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+JeanClaudeVando extends date & time objects to accept a block which is then time-traveled to that date/time.
 
 ## Installation
 
@@ -22,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Date.new(2014, 11, 15) do
+  Date.today # 11-15-2015
+end
+
+Time.new(2014, 11, 15) do
+  Date.today # 11-15-2015
+end
+
+# If active_support's duration is loaded before jean_claude_van_do
+1.day.ago do
+  Date.today # Whatever 1 day ago is :)
+end
+```
 
 ## Development
 
